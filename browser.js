@@ -8,6 +8,10 @@ mantle.setRedraw = function redraw(callback) {
   return window.requestAnimationFrame(callback);
 };
 
+mantle.clearRedraw = function redraw(redrawObject) {
+  return window.clearAnimationFrame(redrawObject);
+};
+
 ['keyDown', 'keyUp'].forEach(function(event) {
   window[fn = 'on' + event.toLowerCase()] = function(data) {
     var key = data.key || data.which || data.keyCode;

@@ -45,3 +45,8 @@ This event is emitted when the user moves the mouse pointer by 1 pixel or more i
 - `callback(timestamp)`*Function* The function to call at the next redraw.
 
 Schedules the given callback to be called at the next redraw.
+
+## mantle.setRedraw(callback)
+- `redrawObject` *Object* The redraw to stop from triggering.
+
+Stops a redraw from triggering.
