@@ -13,5 +13,6 @@
   },
   "bugs": {
     "url": "https://github.com/caspervonb/node-mantle/issues"
-  }
+  },
+  "homepage": "https://github.com/caspervonb/node-mantle"
 }
