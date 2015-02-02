@@ -10,5 +10,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/caspervonb/node-mantle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/caspervonb/node-mantle/issues"
   }
 }
