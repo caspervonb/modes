@@ -6,5 +6,9 @@
   "scripts": {
   },
   "author": "Casper Beyer <caspervonb@qup.io>",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caspervonb/node-mantle.git"
+  }
 }
