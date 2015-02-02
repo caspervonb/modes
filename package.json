@@ -1,0 +1,10 @@
+{
+  "name": "mantle",
+  "version": "0.0.1",
+  "main": "index.js",
+  "browser": "browser.js",
+  "scripts": {
+  },
+  "author": "Casper Beyer <caspervonb@qup.io>",
+  "license": "MIT"
+}
