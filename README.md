@@ -1,4 +1,4 @@
-# mantle
+# Mantle
 This module contains methods for interacting with the host environment. It is an instance of `EventEmitter`.
 
 Use `require('mantle')`to use this module. The following methods are provided:
