@@ -5,6 +5,9 @@
   "browser": "browser.js",
   "scripts": {
   },
+  "files": [
+    "browser.js"
+  ],
   "author": "Casper Beyer <caspervonb@qup.io>",
   "license": "MIT",
   "repository": {
