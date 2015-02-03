@@ -11,7 +11,7 @@ module.exports.clearRedraw = function clearRedraw(redrawObject) {
 
 (function register(emitter) {
   ['keyDown', 'keyUp'].forEach(function(event) {
-    global[fn = 'on' + event.toLowerCase()] = function(data) {
+    global.addEventListener(event.toLowerCase(), function(data) {
       var key = data.key || data.which || data.keyCode;
       var repeat = data.repeat;
       var modifiers = undefined;
@@ -23,7 +23,7 @@ module.exports.clearRedraw = function clearRedraw(redrawObject) {
   });
 
   ['mouseDown', 'mouseUp', 'mouseMove'].forEach(function(event) {
-    global['on' + event.toLowerCase()] = function(data) {
+    global.addEventListener(event.toLowerCase(), function(data) {
       var x = data.clientX;
       var y = data.clientY;
       var button = data.button;
@@ -36,7 +36,7 @@ module.exports.clearRedraw = function clearRedraw(redrawObject) {
   });
 
   ['touchStart', 'touchEnd', 'touchCancel', 'touchMove'].forEach(function(event) {
-    global['on' + event.toLowerCase()] = function(data) {
+    global.addEventListener(event.toLowerCase(), function(data) {
       var touches = data.touches;
       if (mantle.emit(event, touches, modifiers)) {
         data.preventDefault();
@@ -45,7 +45,7 @@ module.exports.clearRedraw = function clearRedraw(redrawObject) {
   });
 
   ['focus', 'blur', 'resize'].forEach(function(event) {
-    global['on' + event.toLowerCase()] = function(data) {
+    global.addEventListener(event.toLowerCase(), function(data) {
       if (mantle.emit(event)) {
         data.preventDefault();
       }
