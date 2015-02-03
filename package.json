@@ -11,6 +11,11 @@
     "type": "git",
     "url": "https://github.com/caspervonb/node-mantle.git"
   },
+  "keywords": [
+    "browser",
+    "window",
+    "app"
+  ],
   "bugs": {
     "url": "https://github.com/caspervonb/node-mantle/issues"
   },
