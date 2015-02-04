@@ -38,5 +38,7 @@ test('events', function(t) {
 });
 
 test('redraw', function(t) {
-  mantle.setRedraw(t.end);
+  mantle.setRedraw(function() {
+    t.end();
+  });
 });
