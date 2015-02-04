@@ -54,4 +54,8 @@ global.addEventListener('load', function () {
       }
     });
   });
+
+  process.nextTick(function () {
+    mantle.emit('load');
+  });
 });
