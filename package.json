@@ -1,6 +1,6 @@
 {
   "name": "mantle",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "browser": "browser.js",
   "files": [
     "browser.js"
