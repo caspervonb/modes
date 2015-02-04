@@ -1,32 +1,42 @@
 var mantle = require('./');
+var test = require('tape');
+var spy = require('spy');
 
-var events = [
-  'mouseDown',
-  'mouseUp',
-  'mouseClick',
-  'mouseMove',
+test('events', function(t) {
+  var events = [
+    'mouseDown',
+    'mouseUp',
+    'mouseClick',
+    'mouseMove',
 
-  'keyDown',
-  'keyUp',
-  'keyPress',
+    'keyDown',
+    'keyUp',
+    'keyPress',
 
-  'touchStart',
-  'touchEnd',
-  'touchCancel',
-  'touchMove',
+    'touchStart',
+    'touchEnd',
+    'touchCancel',
+    'touchMove',
 
-  'focus',
-  'blur',
-];
+    'focus',
+    'blur',
+    'load',
+  ];
 
-events.forEach(function(event) {
-  console.log('Adding event listener for \'%s\'', event);
-  mantle.on(event, function() {
-    console.log(event, arguments);
+  events.forEach(function(event) {
+    var listener = spy();
+
+    mantle.addListener(event, listener);
+    t.equal(mantle.on, mantle.addListener);
+    t.equal(mantle.listeners(event).length, 1);
+
+    mantle.emit(event);
+    t.equal(listener.calls.length, 1);
   });
+
+  t.end();
 });
 
-mantle.setRedraw(function redraw(time) {
-  console.log('redraw', time);
-  mantle.setRedraw(redraw);
-})
+test('redraw', function(t) {
+  mantle.setRedraw(t.end);
+});
