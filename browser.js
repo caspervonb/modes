@@ -23,7 +23,7 @@ global.addEventListener('load', function () {
     });
   });
 
-  ['mouseDown', 'mouseUp', 'mouseMove'].forEach(function (event) {
+  ['mouseDown', 'mouseUp'].forEach(function (event) {
     global.addEventListener(event.toLowerCase(), function (data) {
       var x = data.clientX;
       var y = data.clientY;
@@ -31,6 +31,19 @@ global.addEventListener('load', function () {
       var modifiers = undefined;
 
       if (emitter.emit(event, x, y, button, modifiers)) {
+        data.preventDefault();
+      }
+    });
+  });
+
+  ['mouseMove'].forEach(function (event) {
+    global.addEventListener(event.toLowerCase(), function (data) {
+      var x = data.clientX;
+      var y = data.clientY;
+      var buttons = data.buttons;
+      var modifiers = undefined;
+
+      if (emitter.emit(event, x, y, buttons, modifiers)) {
         data.preventDefault();
       }
     });
