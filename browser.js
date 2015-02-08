@@ -1,16 +1,14 @@
 var events = require('events');
 
-var mantle = new events.EventEmitter();
+var emitter = new events.EventEmitter();
 
-mantle.setRedraw = function (callback) {
+function setRedraw(callback) {
   global.requestAnimationFrame(callback);
-};
+}
 
-mantle.clearRedraw = function (callback) {
+function clearRedraw(callback) {
   global.cancelAnimationFrame(callback);
-};
-
-module.exports = mantle;
+}
 
 global.addEventListener('load', function () {
   ['keyDown', 'keyUp'].forEach(function (event) {
@@ -19,7 +17,7 @@ global.addEventListener('load', function () {
       var repeat = data.repeat;
       var modifiers = undefined;
 
-      if (mantle.emit(event, key, repeat, modifiers)) {
+      if (emitter.emit(event, key, repeat, modifiers)) {
         data.preventDefault();
       }
     });
@@ -32,7 +30,7 @@ global.addEventListener('load', function () {
       var button = data.button;
       var modifiers = undefined;
 
-      if (mantle.emit(event, x, y, button, modifiers)) {
+      if (emitter.emit(event, x, y, button, modifiers)) {
         data.preventDefault();
       }
     });
@@ -41,7 +39,7 @@ global.addEventListener('load', function () {
   ['touchStart', 'touchEnd', 'touchCancel', 'touchMove'].forEach(function (event) {
     global.addEventListener(event.toLowerCase(), function (data) {
       var touches = data.touches;
-      if (mantle.emit(event, touches, modifiers)) {
+      if (emitter.emit(event, touches, modifiers)) {
         data.preventDefault();
       }
     });
@@ -49,13 +47,17 @@ global.addEventListener('load', function () {
 
   ['focus', 'blur', 'resize'].forEach(function (event) {
     global.addEventListener(event.toLowerCase(), function (data) {
-      if (mantle.emit(event)) {
+      if (emitter.emit(event)) {
         data.preventDefault();
       }
     });
   });
 
   process.nextTick(function () {
-    mantle.emit('load');
+    emitter.emit('load');
   });
 });
+
+module.exports = emitter;
+module.exports.setRedraw = setRedraw;
+module.exports.clearRedraw = clearRedraw;
