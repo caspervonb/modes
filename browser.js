@@ -17,9 +17,7 @@ global.addEventListener('load', function () {
       var repeat = data.repeat;
       var modifiers = undefined;
 
-      if (emitter.emit(event, key, repeat, modifiers)) {
-        data.preventDefault();
-      }
+      emitter.emit(event, key, repeat, modifiers);
     });
   });
 
@@ -30,9 +28,7 @@ global.addEventListener('load', function () {
       var button = data.button;
       var modifiers = undefined;
 
-      if (emitter.emit(event, x, y, button, modifiers)) {
-        data.preventDefault();
-      }
+      emitter.emit(event, x, y, button, modifiers);
     });
   });
 
@@ -43,26 +39,20 @@ global.addEventListener('load', function () {
       var buttons = data.buttons;
       var modifiers = undefined;
 
-      if (emitter.emit(event, x, y, buttons, modifiers)) {
-        data.preventDefault();
-      }
+      emitter.emit(event, x, y, buttons, modifiers);
     });
   });
 
   ['touchStart', 'touchEnd', 'touchCancel', 'touchMove'].forEach(function (event) {
     global.addEventListener(event.toLowerCase(), function (data) {
       var touches = data.touches;
-      if (emitter.emit(event, touches, modifiers)) {
-        data.preventDefault();
-      }
+      emitter.emit(event, touches, modifiers);
     });
   });
 
   ['focus', 'blur', 'resize'].forEach(function (event) {
     global.addEventListener(event.toLowerCase(), function (data) {
-      if (emitter.emit(event)) {
-        data.preventDefault();
-      }
+      emitter.emit(event);
     });
   });
 
