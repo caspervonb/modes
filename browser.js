@@ -46,6 +46,8 @@ global.addEventListener('load', function () {
   ['touchStart', 'touchEnd', 'touchCancel', 'touchMove'].forEach(function (event) {
     global.addEventListener(event.toLowerCase(), function (data) {
       var touches = data.touches;
+      var modifiers = undefined;
+
       emitter.emit(event, touches, modifiers);
     });
   });
