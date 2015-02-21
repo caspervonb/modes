@@ -1,7 +1,4 @@
 # Mantle
-This module contains methods for interacting with the host window. It is an instance of `EventEmitter`.
-
-Use `require('mantle')`to use this module. The following methods are provided:
 
 ## Event: keyDown
 - `key`*Number* The key that was pressed.
@@ -39,10 +36,25 @@ This event is emitted when a mouse button that has been pressed is released.
 - `buttons` *Number* A bitmask of buttons currently being held down.
 - `modifiers` *Object* The input modifiers that are currently active.
 
-This event is emitted when the user moves the mouse pointer by 1 pixel or more in any direction in the mantle.
+This event is emitted when the user moves the mouse pointer by 1 pixel or more
+in any direction in the mantle.
+
+## Event: touchStart
+## Event: touchEnd
+## Event: touchCancel
+## Event: touchMove
+
+## Event: blur
+This event is emitted when the window looses focus.
+
+## Event: focus
+This event is emitted when the window gains focus.
+
+## Event: resize
+This event is emitted when the window is resized.
 
 ## mantle.setRedraw(callback)
-- `callback(timestamp)`*Function* The function to call at the next redraw.
+- `callback`*Function* The function to call at the next redraw.
 
 Schedules the given callback to be called at the next redraw.
 
